@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
       - name: debug-demo-pod
-        image: gcr.io/intrepid-axle-316409/debug-demo:1.0
+        image: gcr.io/innate-bucksaw-284213/debug-demo:1.0
         env:
         - name: AZSVC
           value: "Google Kubernetes Engine"
