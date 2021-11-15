@@ -36,9 +36,17 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: npm install
-      - run: npm run build --if-present
-      - run: npm test
+      - name: Get dependencies
+        working-directory: ./app
+        run: npm install
+
+      - name: Build the code
+        working-directory: ./app
+        run: npm run build --if-present
+
+      - name: Run tests
+        working-directory: ./app
+        run: npm test
       
       # Connect to Azure Container Registry (ACR)
       - name: Azure Container Registry Login
