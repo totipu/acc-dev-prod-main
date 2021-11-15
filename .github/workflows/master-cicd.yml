@@ -44,7 +44,7 @@ jobs:
           login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
       
       - name: Build and Push an Image to ACR
-        working-directory: ./hacksoft
+        # working-directory: ./hacksoft
         run: |
           docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
           docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
@@ -63,7 +63,7 @@ jobs:
           namespace: ${{ env.NAMESPACE }}
           # Path to the manifest files which will be used for deployment.
           manifests: |
-            hacksoft/k8s-deploy.yaml
+            k8s/debug-demo-azure.yaml
           # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
           images: |
             ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
