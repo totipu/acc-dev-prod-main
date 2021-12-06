@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
       - name: atd16-demo-pod
-        image: totipuacr.azurecr.io/debug-demo:1.0
+        image: totipuacr.azurecr.io/atd16-demo:1.0
         env:
         - name: AZSVC
           value: "Azure Kubernetes Service"
