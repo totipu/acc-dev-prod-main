@@ -1,7 +1,7 @@
 # Docker Learning demo sample
 
-This sample is a simple node.js application serving a html file.
-It Accepts AZSVC envrionment variable which will be logged to the console and written below the picture.
+This sample is a simple node.js application serving a html file.  
+It accepts AZSVC envrionment variable which will be logged to the console and written below the picture.
 
 ## YAML Files
 
