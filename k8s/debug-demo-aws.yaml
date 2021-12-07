@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
       - name: atd16-demo-pod
-        image: 996886234804.dkr.ecr.us-east-2.amazonaws.com/totipuecr:88
+        image: 996886234804.dkr.ecr.us-west-2.amazonaws.com/totipuecr:88
         env:
         - name: AZSVC
           value: "Elastic Kubernetes Service"
