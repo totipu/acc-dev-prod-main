@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: atd16-demo-dep
+  name: hello-cicd-dep
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: atd16-demo
+      app: hello-cicd
   template:
     metadata:
       labels:
-        app: atd16-demo
+        app: hello-cicd
     spec:
       containers: 
-      - name: atd16-demo-pod
-        image: totipuacr.azurecr.io/atd16-demo:1.0
+      - name: hello-cicd-pod
+        image: totipuacr.azurecr.io/hello-cicd:1.0
         env:
         - name: AZSVC
           value: "Azure Kubernetes Service"
@@ -29,28 +29,28 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: atd16-demo-svc
+  name: hello-cicd-svc
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: atd16-demo
+    app: hello-cicd
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: atd16-demo-ingress
+  name: hello-cicd-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: azure.tipuric.com 
+  - host: cicd.tipuric.com 
     http:
       paths:
       - backend:
-          serviceName: atd16-demo-svc
+          serviceName: hello-cicd-svc
           servicePort: 80
         path: /
