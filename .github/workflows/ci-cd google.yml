@@ -92,7 +92,7 @@ jobs:
       working-directory: ./k8s
       run: |-
         # replacing the image name in the k8s template
-        ./kustomize edit set image gcr.io/innate-bucksaw-284213/atd16-demo:1.0=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
+        ./kustomize edit set image gcr.io/innate-bucksaw-284213/atd16-demo:1.0=gcr.io/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
