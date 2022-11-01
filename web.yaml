@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <DEPLOYMENT-NAME> # name of your deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      <KEY>: <VALUE> # your pod label, e.g. app: web
+  template:
+    metadata:
+      labels:
+        <KEY>: <VALUE> # your pod label, e.g. app: web
+    spec:
+      containers: 
+      - name: <POD-PREFIX-NAME> # prefix name for your pods
+        image: <YOUR-ACR>.azurecr.io/<REPOSITORY>:<TAG> # your image name, eg. totipuarc.azurecr.io/web:latest
+        env:
+        - name: ConnectionStrings__CatalogConnection
+          value: "Server=tcp:SQLSERVER_HOSTNAME_OR_IP,1433;Integrated Security=true;Initial Catalog=eShopOnWeb.CatalogDb;User ID=sa;Password=P@ssw0rd1!;Trusted_Connection=false;"
+        - name: ConnectionStrings__IdentityConnection
+          value: "Server=tcp:SQLSERVER_HOSTNAME_OR_IP,1433;Integrated Security=true;Initial Catalog=eShopOnWeb.Identity;User ID=sa;Password=P@ssw0rd1!;Trusted_Connection=false;"
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+          requests:
+            memory: "512Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: <YOUR-SERVICE-NAME> # name of your service in K8s, e.g. web-svc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    <KEY>: <VALUE> # your pod label, e.g. app: web
