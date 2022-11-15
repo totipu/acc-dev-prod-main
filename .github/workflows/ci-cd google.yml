@@ -11,8 +11,8 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: user-api-cluster    # TODO: update to cluster name
-  GKE_ZONE: europe-west3-a   # TODO: update to cluster zone
+  GKE_CLUSTER: totipu-cluster    # TODO: update to cluster name
+  GKE_ZONE: europe-west1-c   # TODO: update to cluster zone
   DEPLOYMENT_NAME: atd16-demo-dep # TODO: update to deployment name
   REPOSITORY: ci-cd-demo # TODO: update to Artifact Registry docker repository
   IMAGE: static-site
