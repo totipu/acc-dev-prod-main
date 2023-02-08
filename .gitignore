@@ -110,6 +110,7 @@ dist
 
 # VSCode Configuration files
 vscode/
+.vscode/
 
 # yarn v2
 .yarn/cache
