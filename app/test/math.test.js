@@ -22,5 +22,13 @@ describe('math.js tests', () => {
             const result = math.multiply(5, 2);
             expect(result).to.equal(10);
         });
+        it('should equal 0', () => {
+            const restult = math.multiply(0, 10);
+            expect(restult).to.equal(0);
+        });
+        it('should equal -10', () => {
+            const result = math.multiply(-5, 2);
+            expect(result).to.equal(-10);
+        });
     });
 });
