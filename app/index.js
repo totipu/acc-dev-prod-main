@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.send(content);
 });
 
-var listener = app.listen(process.env.PORT || 80, function() {
+var listener = app.listen(process.env.PORT || 8080, function() {
   console.log('listening on port ' + listener.address().port);
   console.log('running on ' + process.env.AZSVC);
 });
