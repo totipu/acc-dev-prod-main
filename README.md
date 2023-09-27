@@ -8,6 +8,7 @@ It accepts AZSVC envrionment variable which will be logged to the console and wr
 |Variable name|Description|
 |---------|---------|
 |AZSVC|Type of the service running current workload, e.g. Azure App Service|
+|PORT|The port on which application is going to run|
 
 ## YAML Files
 
